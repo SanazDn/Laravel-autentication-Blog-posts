@@ -28,8 +28,8 @@ Route::post('/create-post', [PostController::class, 'storeNewPost'])->middleware
 Route::get('/post/{post}', [PostController::class, 'viewSinglePost']);
 
 // Meet up related routes
-Route::get('/create-meet', [MeetController::class, 'showCreateForm']);
-Route::post('/create-meet', [MeetController::class, 'storeNewMeet']);
+Route::get('/create-meet', [MeetController::class, 'showCreateForm'])->middleware('mustBeLoggedIn');
+Route::post('/create-meet', [MeetController::class, 'storeNewMeet'])->middleware('mustBeLoggedIn');
 Route::get('/meet/{meet}', [MeetController::class, 'viewSingleMeet']);
 
 
